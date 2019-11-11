@@ -7,76 +7,26 @@
 
 -- Started on 2019-11-04 02:16:50
 
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- TOC entry 2909 (class 0 OID 0)
--- Dependencies: 2908
--- Name: DATABASE "TeamWorkDatabase"; Type: COMMENT; Schema: -; Owner: Eliud
---
-
-COMMENT ON DATABASE "TeamWorkDatabase" IS 'Database for final capstone project by DevCTraining';
-
-
---
--- TOC entry 8 (class 2615 OID 16623)
--- Name: tttrtrt; Type: SCHEMA; Schema: -; Owner: Eliud
---
-
-CREATE SCHEMA tttrtrt;
-
-
-ALTER SCHEMA tttrtrt OWNER TO "Eliud";
-
---
--- TOC entry 1 (class 3079 OID 12924)
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- TOC entry 2911 (class 0 OID 0)
--- Dependencies: 1
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
-
-SET default_tablespace = '';
-
-SET default_with_oids = false;
-
 --
 -- TOC entry 198 (class 1259 OID 16397)
 -- Name: ArticleCategories; Type: TABLE; Schema: public; Owner: Eliud
 --
 
-CREATE TABLE public."ArticleCategories" (
+CREATE TABLE "ArticleCategories" (
     "ArticleCategoryId" bigint NOT NULL,
     "CategoryName" character varying(50),
     "Details" character varying(255)
 );
 
 
-ALTER TABLE public."ArticleCategories" OWNER TO "Eliud";
+ALTER TABLE "ArticleCategories" OWNER TO "Eliud";
 
 --
 -- TOC entry 197 (class 1259 OID 16395)
 -- Name: ArticleCategories_ArticleCategoryId_seq; Type: SEQUENCE; Schema: public; Owner: Eliud
 --
 
-CREATE SEQUENCE public."ArticleCategories_ArticleCategoryId_seq"
+CREATE SEQUENCE "ArticleCategories_ArticleCategoryId_seq"
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -84,7 +34,7 @@ CREATE SEQUENCE public."ArticleCategories_ArticleCategoryId_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ArticleCategories_ArticleCategoryId_seq" OWNER TO "Eliud";
+ALTER TABLE "ArticleCategories_ArticleCategoryId_seq" OWNER TO "Eliud";
 
 --
 -- TOC entry 2912 (class 0 OID 0)
@@ -92,7 +42,7 @@ ALTER TABLE public."ArticleCategories_ArticleCategoryId_seq" OWNER TO "Eliud";
 -- Name: ArticleCategories_ArticleCategoryId_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Eliud
 --
 
-ALTER SEQUENCE public."ArticleCategories_ArticleCategoryId_seq" OWNED BY public."ArticleCategories"."ArticleCategoryId";
+ALTER SEQUENCE "ArticleCategories_ArticleCategoryId_seq" OWNED BY "ArticleCategories"."ArticleCategoryId";
 
 
 --
@@ -100,21 +50,21 @@ ALTER SEQUENCE public."ArticleCategories_ArticleCategoryId_seq" OWNED BY public.
 -- Name: ArticleComments; Type: TABLE; Schema: public; Owner: Eliud
 --
 
-CREATE TABLE public."ArticleComments" (
+CREATE TABLE "ArticleComments" (
     "CommentId" bigint NOT NULL,
     "ArticleId" bigint,
     "Comments" character varying(255)
 );
 
 
-ALTER TABLE public."ArticleComments" OWNER TO "Eliud";
+ALTER TABLE "ArticleComments" OWNER TO "Eliud";
 
 --
 -- TOC entry 199 (class 1259 OID 16403)
 -- Name: ArticleComments_CommentId_seq; Type: SEQUENCE; Schema: public; Owner: Eliud
 --
 
-CREATE SEQUENCE public."ArticleComments_CommentId_seq"
+CREATE SEQUENCE "ArticleComments_CommentId_seq"
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -122,7 +72,7 @@ CREATE SEQUENCE public."ArticleComments_CommentId_seq"
     CACHE 1;
 
 
-ALTER TABLE public."ArticleComments_CommentId_seq" OWNER TO "Eliud";
+ALTER TABLE "ArticleComments_CommentId_seq" OWNER TO "Eliud";
 
 --
 -- TOC entry 2913 (class 0 OID 0)
@@ -130,7 +80,7 @@ ALTER TABLE public."ArticleComments_CommentId_seq" OWNER TO "Eliud";
 -- Name: ArticleComments_CommentId_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Eliud
 --
 
-ALTER SEQUENCE public."ArticleComments_CommentId_seq" OWNED BY public."ArticleComments"."CommentId";
+ALTER SEQUENCE "ArticleComments_CommentId_seq" OWNED BY "ArticleComments"."CommentId";
 
 
 --
@@ -138,7 +88,7 @@ ALTER SEQUENCE public."ArticleComments_CommentId_seq" OWNED BY public."ArticleCo
 -- Name: Articles; Type: TABLE; Schema: public; Owner: Eliud
 --
 
-CREATE TABLE public."Articles" (
+CREATE TABLE "Articles" (
     "ArticleId" bigint NOT NULL,
     "Article" character varying(50),
     "ArticleTitle" character varying(50),
@@ -150,14 +100,14 @@ CREATE TABLE public."Articles" (
 );
 
 
-ALTER TABLE public."Articles" OWNER TO "Eliud";
+ALTER TABLE "Articles" OWNER TO "Eliud";
 
 --
 -- TOC entry 201 (class 1259 OID 16411)
 -- Name: Articles_ArticleId_seq; Type: SEQUENCE; Schema: public; Owner: Eliud
 --
 
-CREATE SEQUENCE public."Articles_ArticleId_seq"
+CREATE SEQUENCE "Articles_ArticleId_seq"
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -165,7 +115,7 @@ CREATE SEQUENCE public."Articles_ArticleId_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Articles_ArticleId_seq" OWNER TO "Eliud";
+ALTER TABLE "Articles_ArticleId_seq" OWNER TO "Eliud";
 
 --
 -- TOC entry 2914 (class 0 OID 0)
@@ -173,7 +123,7 @@ ALTER TABLE public."Articles_ArticleId_seq" OWNER TO "Eliud";
 -- Name: Articles_ArticleId_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Eliud
 --
 
-ALTER SEQUENCE public."Articles_ArticleId_seq" OWNED BY public."Articles"."ArticleId";
+ALTER SEQUENCE "Articles_ArticleId_seq" OWNED BY "Articles"."ArticleId";
 
 
 --
@@ -181,21 +131,21 @@ ALTER SEQUENCE public."Articles_ArticleId_seq" OWNED BY public."Articles"."Artic
 -- Name: GifCategories; Type: TABLE; Schema: public; Owner: Eliud
 --
 
-CREATE TABLE public."GifCategories" (
+CREATE TABLE "GifCategories" (
     "GifCategoryId" bigint NOT NULL,
     "CategoryName" character varying(50),
     "Details" character varying(255)
 );
 
 
-ALTER TABLE public."GifCategories" OWNER TO "Eliud";
+ALTER TABLE "GifCategories" OWNER TO "Eliud";
 
 --
 -- TOC entry 203 (class 1259 OID 16419)
 -- Name: GifCategories_GifCategoryId_seq; Type: SEQUENCE; Schema: public; Owner: Eliud
 --
 
-CREATE SEQUENCE public."GifCategories_GifCategoryId_seq"
+CREATE SEQUENCE "GifCategories_GifCategoryId_seq"
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -203,7 +153,7 @@ CREATE SEQUENCE public."GifCategories_GifCategoryId_seq"
     CACHE 1;
 
 
-ALTER TABLE public."GifCategories_GifCategoryId_seq" OWNER TO "Eliud";
+ALTER TABLE "GifCategories_GifCategoryId_seq" OWNER TO "Eliud";
 
 --
 -- TOC entry 2915 (class 0 OID 0)
@@ -211,7 +161,7 @@ ALTER TABLE public."GifCategories_GifCategoryId_seq" OWNER TO "Eliud";
 -- Name: GifCategories_GifCategoryId_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Eliud
 --
 
-ALTER SEQUENCE public."GifCategories_GifCategoryId_seq" OWNED BY public."GifCategories"."GifCategoryId";
+ALTER SEQUENCE "GifCategories_GifCategoryId_seq" OWNED BY "GifCategories"."GifCategoryId";
 
 
 --
@@ -219,21 +169,21 @@ ALTER SEQUENCE public."GifCategories_GifCategoryId_seq" OWNED BY public."GifCate
 -- Name: GifComments; Type: TABLE; Schema: public; Owner: Eliud
 --
 
-CREATE TABLE public."GifComments" (
+CREATE TABLE "GifComments" (
     "CommentId" bigint NOT NULL,
     "GifId" bigint,
     "Comments" character varying(255)
 );
 
 
-ALTER TABLE public."GifComments" OWNER TO "Eliud";
+ALTER TABLE "GifComments" OWNER TO "Eliud";
 
 --
 -- TOC entry 205 (class 1259 OID 16427)
 -- Name: GifComments_CommentId_seq; Type: SEQUENCE; Schema: public; Owner: Eliud
 --
 
-CREATE SEQUENCE public."GifComments_CommentId_seq"
+CREATE SEQUENCE "GifComments_CommentId_seq"
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -241,7 +191,7 @@ CREATE SEQUENCE public."GifComments_CommentId_seq"
     CACHE 1;
 
 
-ALTER TABLE public."GifComments_CommentId_seq" OWNER TO "Eliud";
+ALTER TABLE "GifComments_CommentId_seq" OWNER TO "Eliud";
 
 --
 -- TOC entry 2916 (class 0 OID 0)
@@ -249,7 +199,7 @@ ALTER TABLE public."GifComments_CommentId_seq" OWNER TO "Eliud";
 -- Name: GifComments_CommentId_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Eliud
 --
 
-ALTER SEQUENCE public."GifComments_CommentId_seq" OWNED BY public."GifComments"."CommentId";
+ALTER SEQUENCE "GifComments_CommentId_seq" OWNED BY "GifComments"."CommentId";
 
 
 --
@@ -257,7 +207,7 @@ ALTER SEQUENCE public."GifComments_CommentId_seq" OWNED BY public."GifComments".
 -- Name: Gifs; Type: TABLE; Schema: public; Owner: Eliud
 --
 
-CREATE TABLE public."Gifs" (
+CREATE TABLE "Gifs" (
     "GifId" bigint NOT NULL,
     "Url" character varying(255),
     "GifTitle" character varying(50),
@@ -269,14 +219,14 @@ CREATE TABLE public."Gifs" (
 );
 
 
-ALTER TABLE public."Gifs" OWNER TO "Eliud";
+ALTER TABLE "Gifs" OWNER TO "Eliud";
 
 --
 -- TOC entry 207 (class 1259 OID 16435)
 -- Name: Gifs_GifId_seq; Type: SEQUENCE; Schema: public; Owner: Eliud
 --
 
-CREATE SEQUENCE public."Gifs_GifId_seq"
+CREATE SEQUENCE "Gifs_GifId_seq"
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -284,7 +234,7 @@ CREATE SEQUENCE public."Gifs_GifId_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Gifs_GifId_seq" OWNER TO "Eliud";
+ALTER TABLE "Gifs_GifId_seq" OWNER TO "Eliud";
 
 --
 -- TOC entry 2917 (class 0 OID 0)
@@ -292,7 +242,7 @@ ALTER TABLE public."Gifs_GifId_seq" OWNER TO "Eliud";
 -- Name: Gifs_GifId_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Eliud
 --
 
-ALTER SEQUENCE public."Gifs_GifId_seq" OWNED BY public."Gifs"."GifId";
+ALTER SEQUENCE "Gifs_GifId_seq" OWNED BY "Gifs"."GifId";
 
 
 --
@@ -300,7 +250,7 @@ ALTER SEQUENCE public."Gifs_GifId_seq" OWNED BY public."Gifs"."GifId";
 -- Name: Users; Type: TABLE; Schema: public; Owner: Eliud
 --
 
-CREATE TABLE public."Users" (
+CREATE TABLE "Users" (
     "UserID" bigint NOT NULL,
     "FirstName" character varying(25),
     "LastName" character varying(25),
@@ -315,14 +265,14 @@ CREATE TABLE public."Users" (
 );
 
 
-ALTER TABLE public."Users" OWNER TO "Eliud";
+ALTER TABLE "Users" OWNER TO "Eliud";
 
 --
 -- TOC entry 209 (class 1259 OID 16446)
 -- Name: Users_UserID_seq; Type: SEQUENCE; Schema: public; Owner: Eliud
 --
 
-CREATE SEQUENCE public."Users_UserID_seq"
+CREATE SEQUENCE "Users_UserID_seq"
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -330,7 +280,7 @@ CREATE SEQUENCE public."Users_UserID_seq"
     CACHE 1;
 
 
-ALTER TABLE public."Users_UserID_seq" OWNER TO "Eliud";
+ALTER TABLE "Users_UserID_seq" OWNER TO "Eliud";
 
 --
 -- TOC entry 2918 (class 0 OID 0)
@@ -338,7 +288,7 @@ ALTER TABLE public."Users_UserID_seq" OWNER TO "Eliud";
 -- Name: Users_UserID_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Eliud
 --
 
-ALTER SEQUENCE public."Users_UserID_seq" OWNED BY public."Users"."UserID";
+ALTER SEQUENCE "Users_UserID_seq" OWNED BY "Users"."UserID";
 
 
 --
@@ -346,7 +296,7 @@ ALTER SEQUENCE public."Users_UserID_seq" OWNED BY public."Users"."UserID";
 -- Name: ArticleCategories ArticleCategoryId; Type: DEFAULT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."ArticleCategories" ALTER COLUMN "ArticleCategoryId" SET DEFAULT nextval('public."ArticleCategories_ArticleCategoryId_seq"'::regclass);
+ALTER TABLE ONLY "ArticleCategories" ALTER COLUMN "ArticleCategoryId" SET DEFAULT nextval('"ArticleCategories_ArticleCategoryId_seq"'::regclass);
 
 
 --
@@ -354,7 +304,7 @@ ALTER TABLE ONLY public."ArticleCategories" ALTER COLUMN "ArticleCategoryId" SET
 -- Name: ArticleComments CommentId; Type: DEFAULT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."ArticleComments" ALTER COLUMN "CommentId" SET DEFAULT nextval('public."ArticleComments_CommentId_seq"'::regclass);
+ALTER TABLE ONLY "ArticleComments" ALTER COLUMN "CommentId" SET DEFAULT nextval('"ArticleComments_CommentId_seq"'::regclass);
 
 
 --
@@ -362,7 +312,7 @@ ALTER TABLE ONLY public."ArticleComments" ALTER COLUMN "CommentId" SET DEFAULT n
 -- Name: Articles ArticleId; Type: DEFAULT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Articles" ALTER COLUMN "ArticleId" SET DEFAULT nextval('public."Articles_ArticleId_seq"'::regclass);
+ALTER TABLE ONLY "Articles" ALTER COLUMN "ArticleId" SET DEFAULT nextval('"Articles_ArticleId_seq"'::regclass);
 
 
 --
@@ -370,7 +320,7 @@ ALTER TABLE ONLY public."Articles" ALTER COLUMN "ArticleId" SET DEFAULT nextval(
 -- Name: GifCategories GifCategoryId; Type: DEFAULT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."GifCategories" ALTER COLUMN "GifCategoryId" SET DEFAULT nextval('public."GifCategories_GifCategoryId_seq"'::regclass);
+ALTER TABLE ONLY "GifCategories" ALTER COLUMN "GifCategoryId" SET DEFAULT nextval('"GifCategories_GifCategoryId_seq"'::regclass);
 
 
 --
@@ -378,7 +328,7 @@ ALTER TABLE ONLY public."GifCategories" ALTER COLUMN "GifCategoryId" SET DEFAULT
 -- Name: GifComments CommentId; Type: DEFAULT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."GifComments" ALTER COLUMN "CommentId" SET DEFAULT nextval('public."GifComments_CommentId_seq"'::regclass);
+ALTER TABLE ONLY "GifComments" ALTER COLUMN "CommentId" SET DEFAULT nextval('"GifComments_CommentId_seq"'::regclass);
 
 
 --
@@ -386,7 +336,7 @@ ALTER TABLE ONLY public."GifComments" ALTER COLUMN "CommentId" SET DEFAULT nextv
 -- Name: Gifs GifId; Type: DEFAULT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Gifs" ALTER COLUMN "GifId" SET DEFAULT nextval('public."Gifs_GifId_seq"'::regclass);
+ALTER TABLE ONLY "Gifs" ALTER COLUMN "GifId" SET DEFAULT nextval('"Gifs_GifId_seq"'::regclass);
 
 
 --
@@ -394,77 +344,7 @@ ALTER TABLE ONLY public."Gifs" ALTER COLUMN "GifId" SET DEFAULT nextval('public.
 -- Name: Users UserID; Type: DEFAULT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Users" ALTER COLUMN "UserID" SET DEFAULT nextval('public."Users_UserID_seq"'::regclass);
-
-
---
--- TOC entry 2890 (class 0 OID 16397)
--- Dependencies: 198
--- Data for Name: ArticleCategories; Type: TABLE DATA; Schema: public; Owner: Eliud
---
-
-COPY public."ArticleCategories" ("ArticleCategoryId", "CategoryName", "Details") FROM stdin;
-\.
-
-
---
--- TOC entry 2892 (class 0 OID 16405)
--- Dependencies: 200
--- Data for Name: ArticleComments; Type: TABLE DATA; Schema: public; Owner: Eliud
---
-
-COPY public."ArticleComments" ("CommentId", "ArticleId", "Comments") FROM stdin;
-\.
-
-
---
--- TOC entry 2894 (class 0 OID 16413)
--- Dependencies: 202
--- Data for Name: Articles; Type: TABLE DATA; Schema: public; Owner: Eliud
---
-
-COPY public."Articles" ("ArticleId", "Article", "ArticleTitle", "IsInAppropriate", "ArticleCategoryId", "Comment", "AuthorId", "CreatedOn") FROM stdin;
-\.
-
-
---
--- TOC entry 2896 (class 0 OID 16421)
--- Dependencies: 204
--- Data for Name: GifCategories; Type: TABLE DATA; Schema: public; Owner: Eliud
---
-
-COPY public."GifCategories" ("GifCategoryId", "CategoryName", "Details") FROM stdin;
-\.
-
-
---
--- TOC entry 2898 (class 0 OID 16429)
--- Dependencies: 206
--- Data for Name: GifComments; Type: TABLE DATA; Schema: public; Owner: Eliud
---
-
-COPY public."GifComments" ("CommentId", "GifId", "Comments") FROM stdin;
-\.
-
-
---
--- TOC entry 2900 (class 0 OID 16437)
--- Dependencies: 208
--- Data for Name: Gifs; Type: TABLE DATA; Schema: public; Owner: Eliud
---
-
-COPY public."Gifs" ("GifId", "Url", "GifTitle", "Comment", "IsInAppropriate", "GifCategoryId", "AuthorId", "CreatedOn") FROM stdin;
-\.
-
-
---
--- TOC entry 2902 (class 0 OID 16448)
--- Dependencies: 210
--- Data for Name: Users; Type: TABLE DATA; Schema: public; Owner: Eliud
---
-
-COPY public."Users" ("UserID", "FirstName", "LastName", "Email", "Password", "IsAdmin", "Gender", "JobRole", "Department", "Address", "IsEnabled") FROM stdin;
-\.
+ALTER TABLE ONLY "Users" ALTER COLUMN "UserID" SET DEFAULT nextval('"Users_UserID_seq"'::regclass);
 
 
 --
@@ -473,7 +353,7 @@ COPY public."Users" ("UserID", "FirstName", "LastName", "Email", "Password", "Is
 -- Name: ArticleCategories_ArticleCategoryId_seq; Type: SEQUENCE SET; Schema: public; Owner: Eliud
 --
 
-SELECT pg_catalog.setval('public."ArticleCategories_ArticleCategoryId_seq"', 1, false);
+SELECT pg_catalog.setval('"ArticleCategories_ArticleCategoryId_seq"', 1, false);
 
 
 --
@@ -482,7 +362,7 @@ SELECT pg_catalog.setval('public."ArticleCategories_ArticleCategoryId_seq"', 1, 
 -- Name: ArticleComments_CommentId_seq; Type: SEQUENCE SET; Schema: public; Owner: Eliud
 --
 
-SELECT pg_catalog.setval('public."ArticleComments_CommentId_seq"', 1, false);
+SELECT pg_catalog.setval('"ArticleComments_CommentId_seq"', 1, false);
 
 
 --
@@ -491,7 +371,7 @@ SELECT pg_catalog.setval('public."ArticleComments_CommentId_seq"', 1, false);
 -- Name: Articles_ArticleId_seq; Type: SEQUENCE SET; Schema: public; Owner: Eliud
 --
 
-SELECT pg_catalog.setval('public."Articles_ArticleId_seq"', 1, false);
+SELECT pg_catalog.setval('"Articles_ArticleId_seq"', 1, false);
 
 
 --
@@ -500,7 +380,7 @@ SELECT pg_catalog.setval('public."Articles_ArticleId_seq"', 1, false);
 -- Name: GifCategories_GifCategoryId_seq; Type: SEQUENCE SET; Schema: public; Owner: Eliud
 --
 
-SELECT pg_catalog.setval('public."GifCategories_GifCategoryId_seq"', 1, false);
+SELECT pg_catalog.setval('"GifCategories_GifCategoryId_seq"', 1, false);
 
 
 --
@@ -509,7 +389,7 @@ SELECT pg_catalog.setval('public."GifCategories_GifCategoryId_seq"', 1, false);
 -- Name: GifComments_CommentId_seq; Type: SEQUENCE SET; Schema: public; Owner: Eliud
 --
 
-SELECT pg_catalog.setval('public."GifComments_CommentId_seq"', 1, false);
+SELECT pg_catalog.setval('"GifComments_CommentId_seq"', 1, false);
 
 
 --
@@ -518,7 +398,7 @@ SELECT pg_catalog.setval('public."GifComments_CommentId_seq"', 1, false);
 -- Name: Gifs_GifId_seq; Type: SEQUENCE SET; Schema: public; Owner: Eliud
 --
 
-SELECT pg_catalog.setval('public."Gifs_GifId_seq"', 1, false);
+SELECT pg_catalog.setval('"Gifs_GifId_seq"', 1, false);
 
 
 --
@@ -527,7 +407,7 @@ SELECT pg_catalog.setval('public."Gifs_GifId_seq"', 1, false);
 -- Name: Users_UserID_seq; Type: SEQUENCE SET; Schema: public; Owner: Eliud
 --
 
-SELECT pg_catalog.setval('public."Users_UserID_seq"', 1, false);
+SELECT pg_catalog.setval('"Users_UserID_seq"', 1, false);
 
 
 --
@@ -535,7 +415,7 @@ SELECT pg_catalog.setval('public."Users_UserID_seq"', 1, false);
 -- Name: ArticleCategories ArticleCategories_ArticleCategoryId_key; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."ArticleCategories"
+ALTER TABLE ONLY "ArticleCategories"
     ADD CONSTRAINT "ArticleCategories_ArticleCategoryId_key" UNIQUE ("ArticleCategoryId");
 
 
@@ -544,7 +424,7 @@ ALTER TABLE ONLY public."ArticleCategories"
 -- Name: ArticleCategories ArticleCategories_pkey; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."ArticleCategories"
+ALTER TABLE ONLY "ArticleCategories"
     ADD CONSTRAINT "ArticleCategories_pkey" PRIMARY KEY ("ArticleCategoryId");
 
 
@@ -553,7 +433,7 @@ ALTER TABLE ONLY public."ArticleCategories"
 -- Name: ArticleComments ArticleComments_pkey; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."ArticleComments"
+ALTER TABLE ONLY "ArticleComments"
     ADD CONSTRAINT "ArticleComments_pkey" PRIMARY KEY ("CommentId");
 
 
@@ -562,7 +442,7 @@ ALTER TABLE ONLY public."ArticleComments"
 -- Name: Articles Articles_ArticleId_key; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Articles"
+ALTER TABLE ONLY "Articles"
     ADD CONSTRAINT "Articles_ArticleId_key" UNIQUE ("ArticleId");
 
 
@@ -571,7 +451,7 @@ ALTER TABLE ONLY public."Articles"
 -- Name: Articles Articles_pkey; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Articles"
+ALTER TABLE ONLY "Articles"
     ADD CONSTRAINT "Articles_pkey" PRIMARY KEY ("ArticleId");
 
 
@@ -580,7 +460,7 @@ ALTER TABLE ONLY public."Articles"
 -- Name: GifCategories GifCategories_GifCategoryId_key; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."GifCategories"
+ALTER TABLE ONLY "GifCategories"
     ADD CONSTRAINT "GifCategories_GifCategoryId_key" UNIQUE ("GifCategoryId");
 
 
@@ -589,7 +469,7 @@ ALTER TABLE ONLY public."GifCategories"
 -- Name: GifCategories GifCategories_pkey; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."GifCategories"
+ALTER TABLE ONLY "GifCategories"
     ADD CONSTRAINT "GifCategories_pkey" PRIMARY KEY ("GifCategoryId");
 
 
@@ -598,7 +478,7 @@ ALTER TABLE ONLY public."GifCategories"
 -- Name: GifComments GifComments_pkey; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."GifComments"
+ALTER TABLE ONLY "GifComments"
     ADD CONSTRAINT "GifComments_pkey" PRIMARY KEY ("CommentId");
 
 
@@ -607,7 +487,7 @@ ALTER TABLE ONLY public."GifComments"
 -- Name: Gifs Gifs_GifId_key; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Gifs"
+ALTER TABLE ONLY "Gifs"
     ADD CONSTRAINT "Gifs_GifId_key" UNIQUE ("GifId");
 
 
@@ -616,7 +496,7 @@ ALTER TABLE ONLY public."Gifs"
 -- Name: Gifs Gifs_pkey; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Gifs"
+ALTER TABLE ONLY "Gifs"
     ADD CONSTRAINT "Gifs_pkey" PRIMARY KEY ("GifId");
 
 
@@ -625,7 +505,7 @@ ALTER TABLE ONLY public."Gifs"
 -- Name: Users Users_Email_key; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Users"
+ALTER TABLE ONLY "Users"
     ADD CONSTRAINT "Users_Email_key" UNIQUE ("Email");
 
 
@@ -634,7 +514,7 @@ ALTER TABLE ONLY public."Users"
 -- Name: Users Users_Email_key1; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Users"
+ALTER TABLE ONLY "Users"
     ADD CONSTRAINT "Users_Email_key1" UNIQUE ("Email");
 
 
@@ -643,7 +523,7 @@ ALTER TABLE ONLY public."Users"
 -- Name: Users Users_UserID_key; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Users"
+ALTER TABLE ONLY "Users"
     ADD CONSTRAINT "Users_UserID_key" UNIQUE ("UserID");
 
 
@@ -652,7 +532,7 @@ ALTER TABLE ONLY public."Users"
 -- Name: Users Users_pkey; Type: CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Users"
+ALTER TABLE ONLY "Users"
     ADD CONSTRAINT "Users_pkey" PRIMARY KEY ("UserID");
 
 
@@ -661,7 +541,7 @@ ALTER TABLE ONLY public."Users"
 -- Name: index_ArticleCategorieIdy; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_ArticleCategorieIdy" ON public."GifCategories" USING btree ("GifCategoryId");
+CREATE INDEX "index_ArticleCategorieIdy" ON "GifCategories" USING btree ("GifCategoryId");
 
 
 --
@@ -669,7 +549,7 @@ CREATE INDEX "index_ArticleCategorieIdy" ON public."GifCategories" USING btree (
 -- Name: index_ArticleCategorieIgd; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_ArticleCategorieIgd" ON public."ArticleCategories" USING btree ("ArticleCategoryId");
+CREATE INDEX "index_ArticleCategorieIgd" ON "ArticleCategories" USING btree ("ArticleCategoryId");
 
 
 --
@@ -677,7 +557,7 @@ CREATE INDEX "index_ArticleCategorieIgd" ON public."ArticleCategories" USING btr
 -- Name: index_ArticleId1; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_ArticleId1" ON public."ArticleComments" USING btree ("ArticleId");
+CREATE INDEX "index_ArticleId1" ON "ArticleComments" USING btree ("ArticleId");
 
 
 --
@@ -685,7 +565,7 @@ CREATE INDEX "index_ArticleId1" ON public."ArticleComments" USING btree ("Articl
 -- Name: index_ArticleId2; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_ArticleId2" ON public."Articles" USING btree ("ArticleId");
+CREATE INDEX "index_ArticleId2" ON "Articles" USING btree ("ArticleId");
 
 
 --
@@ -693,7 +573,7 @@ CREATE INDEX "index_ArticleId2" ON public."Articles" USING btree ("ArticleId");
 -- Name: index_ArticleId3; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_ArticleId3" ON public."GifComments" USING btree ("GifId");
+CREATE INDEX "index_ArticleId3" ON "GifComments" USING btree ("GifId");
 
 
 --
@@ -701,7 +581,7 @@ CREATE INDEX "index_ArticleId3" ON public."GifComments" USING btree ("GifId");
 -- Name: index_ArticleId4; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_ArticleId4" ON public."Gifs" USING btree ("GifId");
+CREATE INDEX "index_ArticleId4" ON "Gifs" USING btree ("GifId");
 
 
 --
@@ -709,7 +589,7 @@ CREATE INDEX "index_ArticleId4" ON public."Gifs" USING btree ("GifId");
 -- Name: index_AuthhgorIda; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_AuthhgorIda" ON public."Gifs" USING btree ("AuthorId");
+CREATE INDEX "index_AuthhgorIda" ON "Gifs" USING btree ("AuthorId");
 
 
 --
@@ -717,7 +597,7 @@ CREATE INDEX "index_AuthhgorIda" ON public."Gifs" USING btree ("AuthorId");
 -- Name: index_AuthorjId; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_AuthorjId" ON public."Articles" USING btree ("AuthorId");
+CREATE INDEX "index_AuthorjId" ON "Articles" USING btree ("AuthorId");
 
 
 --
@@ -725,7 +605,7 @@ CREATE INDEX "index_AuthorjId" ON public."Articles" USING btree ("AuthorId");
 -- Name: index_CommehntId; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_CommehntId" ON public."ArticleComments" USING btree ("CommentId");
+CREATE INDEX "index_CommehntId" ON "ArticleComments" USING btree ("CommentId");
 
 
 --
@@ -733,7 +613,7 @@ CREATE INDEX "index_CommehntId" ON public."ArticleComments" USING btree ("Commen
 -- Name: index_CommhentId; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_CommhentId" ON public."GifComments" USING btree ("CommentId");
+CREATE INDEX "index_CommhentId" ON "GifComments" USING btree ("CommentId");
 
 
 --
@@ -741,7 +621,7 @@ CREATE INDEX "index_CommhentId" ON public."GifComments" USING btree ("CommentId"
 -- Name: index_GifCahhtegoryId; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_GifCahhtegoryId" ON public."Articles" USING btree ("ArticleCategoryId");
+CREATE INDEX "index_GifCahhtegoryId" ON "Articles" USING btree ("ArticleCategoryId");
 
 
 --
@@ -749,7 +629,7 @@ CREATE INDEX "index_GifCahhtegoryId" ON public."Articles" USING btree ("ArticleC
 -- Name: index_GifCatehgjgoryId; Type: INDEX; Schema: public; Owner: Eliud
 --
 
-CREATE INDEX "index_GifCatehgjgoryId" ON public."Gifs" USING btree ("GifCategoryId");
+CREATE INDEX "index_GifCatehgjgoryId" ON "Gifs" USING btree ("GifCategoryId");
 
 
 --
@@ -757,8 +637,8 @@ CREATE INDEX "index_GifCatehgjgoryId" ON public."Gifs" USING btree ("GifCategory
 -- Name: ArticleComments ArticleComments_ArticleId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."ArticleComments"
-    ADD CONSTRAINT "ArticleComments_ArticleId_fkey" FOREIGN KEY ("ArticleId") REFERENCES public."Articles"("ArticleId");
+ALTER TABLE ONLY "ArticleComments"
+    ADD CONSTRAINT "ArticleComments_ArticleId_fkey" FOREIGN KEY ("ArticleId") REFERENCES "Articles"("ArticleId");
 
 
 --
@@ -766,8 +646,8 @@ ALTER TABLE ONLY public."ArticleComments"
 -- Name: ArticleComments ArticleComments_ArticleId_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."ArticleComments"
-    ADD CONSTRAINT "ArticleComments_ArticleId_fkey1" FOREIGN KEY ("ArticleId") REFERENCES public."Articles"("ArticleId");
+ALTER TABLE ONLY "ArticleComments"
+    ADD CONSTRAINT "ArticleComments_ArticleId_fkey1" FOREIGN KEY ("ArticleId") REFERENCES "Articles"("ArticleId");
 
 
 --
@@ -775,8 +655,8 @@ ALTER TABLE ONLY public."ArticleComments"
 -- Name: Articles Articles_ArticleCategoryId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Articles"
-    ADD CONSTRAINT "Articles_ArticleCategoryId_fkey" FOREIGN KEY ("ArticleCategoryId") REFERENCES public."ArticleCategories"("ArticleCategoryId");
+ALTER TABLE ONLY "Articles"
+    ADD CONSTRAINT "Articles_ArticleCategoryId_fkey" FOREIGN KEY ("ArticleCategoryId") REFERENCES "ArticleCategories"("ArticleCategoryId");
 
 
 --
@@ -784,8 +664,8 @@ ALTER TABLE ONLY public."Articles"
 -- Name: Articles Articles_ArticleCategoryId_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Articles"
-    ADD CONSTRAINT "Articles_ArticleCategoryId_fkey1" FOREIGN KEY ("ArticleCategoryId") REFERENCES public."ArticleCategories"("ArticleCategoryId");
+ALTER TABLE ONLY "Articles"
+    ADD CONSTRAINT "Articles_ArticleCategoryId_fkey1" FOREIGN KEY ("ArticleCategoryId") REFERENCES "ArticleCategories"("ArticleCategoryId");
 
 
 --
@@ -793,8 +673,8 @@ ALTER TABLE ONLY public."Articles"
 -- Name: Articles Articles_AuthorId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Articles"
-    ADD CONSTRAINT "Articles_AuthorId_fkey" FOREIGN KEY ("AuthorId") REFERENCES public."Users"("UserID");
+ALTER TABLE ONLY "Articles"
+    ADD CONSTRAINT "Articles_AuthorId_fkey" FOREIGN KEY ("AuthorId") REFERENCES "Users"("UserID");
 
 
 --
@@ -802,8 +682,8 @@ ALTER TABLE ONLY public."Articles"
 -- Name: Articles Articles_AuthorId_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Articles"
-    ADD CONSTRAINT "Articles_AuthorId_fkey1" FOREIGN KEY ("AuthorId") REFERENCES public."Users"("UserID");
+ALTER TABLE ONLY "Articles"
+    ADD CONSTRAINT "Articles_AuthorId_fkey1" FOREIGN KEY ("AuthorId") REFERENCES "Users"("UserID");
 
 
 --
@@ -811,8 +691,8 @@ ALTER TABLE ONLY public."Articles"
 -- Name: GifComments GifComments_GifId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."GifComments"
-    ADD CONSTRAINT "GifComments_GifId_fkey" FOREIGN KEY ("GifId") REFERENCES public."Gifs"("GifId");
+ALTER TABLE ONLY "GifComments"
+    ADD CONSTRAINT "GifComments_GifId_fkey" FOREIGN KEY ("GifId") REFERENCES "Gifs"("GifId");
 
 
 --
@@ -820,8 +700,8 @@ ALTER TABLE ONLY public."GifComments"
 -- Name: GifComments GifComments_GifId_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."GifComments"
-    ADD CONSTRAINT "GifComments_GifId_fkey1" FOREIGN KEY ("GifId") REFERENCES public."Gifs"("GifId");
+ALTER TABLE ONLY "GifComments"
+    ADD CONSTRAINT "GifComments_GifId_fkey1" FOREIGN KEY ("GifId") REFERENCES "Gifs"("GifId");
 
 
 --
@@ -829,8 +709,8 @@ ALTER TABLE ONLY public."GifComments"
 -- Name: Gifs Gifs_AuthorId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Gifs"
-    ADD CONSTRAINT "Gifs_AuthorId_fkey" FOREIGN KEY ("AuthorId") REFERENCES public."Users"("UserID");
+ALTER TABLE ONLY "Gifs"
+    ADD CONSTRAINT "Gifs_AuthorId_fkey" FOREIGN KEY ("AuthorId") REFERENCES "Users"("UserID");
 
 
 --
@@ -838,8 +718,8 @@ ALTER TABLE ONLY public."Gifs"
 -- Name: Gifs Gifs_AuthorId_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Gifs"
-    ADD CONSTRAINT "Gifs_AuthorId_fkey1" FOREIGN KEY ("AuthorId") REFERENCES public."Users"("UserID");
+ALTER TABLE ONLY "Gifs"
+    ADD CONSTRAINT "Gifs_AuthorId_fkey1" FOREIGN KEY ("AuthorId") REFERENCES "Users"("UserID");
 
 
 --
@@ -847,8 +727,8 @@ ALTER TABLE ONLY public."Gifs"
 -- Name: Gifs Gifs_GifCategoryId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Gifs"
-    ADD CONSTRAINT "Gifs_GifCategoryId_fkey" FOREIGN KEY ("GifCategoryId") REFERENCES public."GifCategories"("GifCategoryId");
+ALTER TABLE ONLY "Gifs"
+    ADD CONSTRAINT "Gifs_GifCategoryId_fkey" FOREIGN KEY ("GifCategoryId") REFERENCES "GifCategories"("GifCategoryId");
 
 
 --
@@ -856,8 +736,8 @@ ALTER TABLE ONLY public."Gifs"
 -- Name: Gifs Gifs_GifCategoryId_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Eliud
 --
 
-ALTER TABLE ONLY public."Gifs"
-    ADD CONSTRAINT "Gifs_GifCategoryId_fkey1" FOREIGN KEY ("GifCategoryId") REFERENCES public."GifCategories"("GifCategoryId");
+ALTER TABLE ONLY "Gifs"
+    ADD CONSTRAINT "Gifs_GifCategoryId_fkey1" FOREIGN KEY ("GifCategoryId") REFERENCES "GifCategories"("GifCategoryId");
 
 
 -- Completed on 2019-11-04 02:17:03
